@@ -27,6 +27,9 @@ git commit -a [automatically stage files for commit]
 Push changes to GitHub (perhaps working on a branch)  
 git push  
 
+Push a new branch into into GitHub  
+git push -u origin NAMEBRANCH  
+
 Perhaps a branch is ready to join Master (assuming: working from current branch)  
 git checkout NAMEBRANCH  
 git merge master  
