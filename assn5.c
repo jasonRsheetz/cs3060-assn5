@@ -11,7 +11,43 @@ Originality Disclaimer: The following code we have written under our own efforts
 #include <stdio.h>
 
 int main(int argc, char *argv[]){
-	printf("Hello World!\n");
+		printf("Hello World!\n");
+
+//arrays to hold the process run-time and the time the process was added to the ready queue
+int run_time[50];
+int ready_q_add[50];
+
+//open the file
+FILE *fp = stdin;
+if(argc > 1)
+{
+fp = fopen(argv[1], "r");
+        if(fp==NULL)
+                {
+                perror("error opening file");
+                return -1;
+                }
+}
+
+//while loop index
+int i = 0;
+int number;
+
+//read run times into arrays
+while(fscanf(fp, "%d", &number) != EOF)
+{
+ready_q_add[i] = number;
+//read a new number
+fscanf(fp, "%d", &number);
+run_time[i] = number;
+i++;
+}
+//number of processes is half of i
+int count = i;
+
+//start with first come first serve
+//FCFS(run_time, ready_q_add, count);
+
 	return 0;
 }
 
