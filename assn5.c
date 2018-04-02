@@ -46,7 +46,10 @@ i++;
 int count = i;
 
 //start with first come first serve
-//FCFS(run_time, ready_q_add, count);
+FCFS(run_time, ready_q_add, count);
+
+//shortest job first
+SJF(run_time, ready_q_add, count);
 
 	return 0;
 }
