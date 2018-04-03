@@ -10,8 +10,13 @@ Originality Disclaimer: The following code we have written under our own efforts
 
 #include <stdio.h>
 
+//function prologues
+void FCFS(int*, int*, int);
+void SJF(int*, int*, int);
+
+
 int main(int argc, char *argv[]){
-		printf("Hello World!\n");
+	printf("Hello World!\n");
 
 //arrays to hold the process run-time and the time the process was added to the ready queue
 int run_time[100];
@@ -42,7 +47,8 @@ fscanf(fp, "%d", &number);
 run_time[i] = number;
 i++;
 }
-//number of processes is half of i
+
+//number of processes is i
 int count = i;
 
 //start with first come first serve
@@ -53,8 +59,6 @@ SJF(run_time, ready_q_add, count);
 
 	return 0;
 }
-
-
 
 //first come first served routine
 void FCFS(int *run_time, int *ready_q_add, int count)
@@ -164,22 +168,21 @@ int temp = last_job-1;
 	for(int i = 0; i <= count-1; i++)
 	{
 		
-printf("%d " , process_run_time[i]);
+
 		//if the ith index has a smaller run time then the current job, make that job the current job
-		if((process_run_time[i] < 1000) && process_run_time[i] > 0)
+		if((process_run_time[i] < 500) && process_run_time[i] > 0)
 		{
 		
-			//printf("\n	%d	%d", process_run_time[i], process_run_time[current_job]);
 		current_job = i;
 		temp = i;
 		}
 
 	}
-printf("\n");
+
 
 	//move the start clock to the time that the current job was added to the ready q
 	int first_run = clock;
-printf("%d ", clock);
+
 	//advance the clock to the end of the job
 	clock = process_run_time[current_job] + clock;
 	
